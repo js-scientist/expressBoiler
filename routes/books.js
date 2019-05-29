@@ -14,9 +14,7 @@ bookRouter
     next();
   })
   .get(authenticate.verifyUser, (req, res, next) => {
-    // console.log(Books.find({}));
-    Books.find({}).
-    then(books => {
+    Books.find({}).then(books => {
       res.json(books);
     });
   })
@@ -38,7 +36,7 @@ bookRouter
   .delete(authenticate.verifyUser, (req, res, next) => {
     Books.remove({})
       .then(
-        resp => { 
+        resp => {
           res.json(resp);
           res.end("All Books Deleted");
         },
